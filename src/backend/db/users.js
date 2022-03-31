@@ -1,3 +1,6 @@
+
+import bcrypt from "bcryptjs";
+
 import { v4 as uuid } from "uuid";
 import { formatDate } from "../utils/authUtils";
 /**
@@ -12,7 +15,16 @@ export const users = [
     firstName: "Adarsh",
     lastName: "Balika",
     email: "adarshbalika@gmail.com",
-    password: "adarshbalika",
+    password: bcrypt.hashSync('password123',10),
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    firstName: "Adarsh",
+    lastName: "Balika",
+    email: "guestUser@gmail.com",
+    password: bcrypt.hashSync('password123',10),
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },
